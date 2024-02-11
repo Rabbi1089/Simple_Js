@@ -1,0 +1,89 @@
+function calculateMoney(tickets){
+    if ( tickets !== 'number' && tickets <= 0 ){
+        return 'Please , Enter valid number';
+    }
+    else{
+        let totalEarn = (tickets * 120) - ((1*500) + (8 * 50))
+        return totalEarn;
+    }
+}
+
+
+function checkName(name){
+    if (typeof name !== 'string') {
+        return 'invalid'
+      }
+    let givenName = name.toUpperCase().slice(-1);
+    if(givenName == 'a' || givenName == 'y' || givenName == 'i' || givenName == 'e' || givenName == '0' || givenName == 'u' || givenName == 'w' ){
+        return 'Good Name'
+    }
+    else{
+        return 'Bad Name'
+    }
+}
+
+
+function deleteInvalids(array){
+    if(Array.isArray(array)){
+        var newArray = [];
+        for(var i = 0; i<array.length; i++){
+        var element = array[i];
+        if(typeof array[i] === 'number'){
+        newArray.push(element);
+        }
+    }
+        if (isNaN(array[i])) {
+        newArray.pop(element);
+        }
+    return newArray;
+    }else{
+        return 'Invalid Array'
+    }
+
+}
+
+
+function password(obj){
+    const siteName= obj['siteName'];
+    const name= obj['name'];
+    const date = obj['birthYear'];
+    const dateLength = (date.toString().length)
+
+    if(typeof obj !== 'object'){
+        return "Please input only objcet"
+    }
+    if( !siteName || !name || !date || dateLength < 4){
+        return 'Invalid input'
+    }else{
+        var webSiteName = siteName[0].toUpperCase() + siteName.slice(1);
+        var userName = name[0].toUpperCase() + name.slice(1);
+    }
+
+
+    let passKey = webSiteName + '#' + userName + '@' + obj['birthYear']
+    return passKey;
+
+}
+
+
+function monthlySavings(credit, debit){
+    if(Array.isArray(credit) || typeof debit === 'number'){
+        
+	let sum = 0;
+	for (let i = 0; i < credit.length; i++) {
+	sum += credit[i];
+	}
+	let current = 0;
+	if(sum >= 3000 ){
+	current =  sum - (sum * (20/100));
+    let savings = current - debit;
+	if(savings > 0){
+    return savings;
+	}else{
+   return 'Earn more'
+		}
+	}
+	}else{
+    return 'invalid input'
+		}
+	}
